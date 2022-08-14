@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import './Counter.css'
 
 
 const Counter = () => {
     const [contage, setContage] = useState(0)
+
+    useEffect(() => {
+        console.log('Testando UseEffect')
+    } , [contage])
 
     const handleOnClick = operador => {
         let newValue = operador === '+'
