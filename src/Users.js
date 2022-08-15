@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from "react"
-import Template from './Template'
 import Loading from "./loading"
 
 const Users = () => {
@@ -18,21 +17,20 @@ const Users = () => {
     }, [])
     return(
         <>
-            <Template title="Users"/>
-            <Loading visible ={isLoading} />
-            {
-                users.map(user => {
-                    return(
-                        <div style={{margin:'10px'}}>
-                            <b>Nome:</b> {user.name}<br/> 
-                            <b>Username:</b> {user.username}<br/>       
-                            <b>Email:</b> {user.email}<br/>
-                            <b>Telefone:</b> {user.phone}<br/>
-                            <b>Site:</b> {user.website}<br/>
-                        </div>
-                    )
-                })
-            }
+                <Loading visible ={isLoading} />
+                {
+                    users.map(user => {
+                        return(
+                            <div style={{margin:'10px'}}>
+                                <b>Nome:</b> {user.name}<br/> 
+                                <b>Username:</b> {user.username}<br/>       
+                                <b>Email:</b> {user.email}<br/>
+                                <b>Telefone:</b> {user.phone}<br/>
+                                <b>Site:</b> {user.website}<br/>
+                            </div>
+                        )
+                    })
+                }    
         </>
     )
 }
