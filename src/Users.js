@@ -1,25 +1,25 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
+import Template from './Template'
+import Loading from "./loading"
 
 const Users = () => {
-    const  [loading, setLoading] = useState(false)
+    const  [isLoading, setIsLoading] = useState(false)
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        setLoading(true)
+        setIsLoading(true)
         fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json())
         .then(data =>{
             setUsers(data)
-            setLoading(false)
+            setIsLoading(false)
         })
     }, [])
     return(
         <>
-            <h1>Users</h1>
-            {
-                loading === true ? 'Carregando...' : ''
-            }
+            <Template title="Users"/>
+            <Loading visible ={isLoading} />
             {
                 users.map(user => {
                     return(
@@ -28,7 +28,7 @@ const Users = () => {
                             <b>Username:</b> {user.username}<br/>       
                             <b>Email:</b> {user.email}<br/>
                             <b>Telefone:</b> {user.phone}<br/>
-                            <b>Site</b> {user.website}<br/>
+                            <b>Site:</b> {user.website}<br/>
                         </div>
                     )
                 })
